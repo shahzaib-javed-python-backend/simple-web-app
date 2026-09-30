@@ -1,21 +1,54 @@
-# Simple Web App - FastAPI Backend
+# Simple Web App
 
-A high-performance, lightweight web application and API template built using Python and FastAPI. Designed for speed, scalability, and clean architecture.
+Minimal FastAPI app with a single endpoint.
 
-## 🚀 Features
-- Fast asynchronous routing with FastAPI.
-- Automatic interactive documentation (`/docs` and `/redoc`).
-- Lightweight and production-ready structure.
-- Easy to extend for microservices and full-stack dashboards.
+## Setup
 
-## 🛠️ Tech Stack
-- **Python** (3.10+)
-- **FastAPI**
-- **Uvicorn** (ASGI Server)
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install fastapi uvicorn
+```
 
-## 📦 Getting Started Locally
+## Run
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/shahzaibjavedpy/simple-web-app.git](https://github.com/shahzaibjavedpy/simple-web-app.git)
-   cd simple-web-app
+From the repository root:
+
+```bash
+uvicorn main:app --reload
+```
+
+By default the server runs at `http://127.0.0.1:8000`.
+
+## API usage
+
+### `GET /`
+
+Response:
+
+```json
+{
+  "message": "Hello! Meri pehli Python web app successfully chal rahi hai 🚀"
+}
+```
+
+Example request:
+
+```bash
+curl http://127.0.0.1:8000/
+```
+
+FastAPI also provides auto-generated docs at:
+
+- `http://127.0.0.1:8000/docs`
+- `http://127.0.0.1:8000/redoc`
+
+## Testing
+
+There is currently no test suite or test configuration in this repository.
+
+Quick manual check:
+
+```bash
+python -c "from main import home; print(home())"
+```
